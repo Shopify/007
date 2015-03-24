@@ -4,6 +4,3 @@ set -e
 set -x
 
 script/build
-
-# Remove everything not required for the distribution
-find * -maxdepth 0 -name '007' -o -name 'REVISION' -o -name 'LICENSE' -prune -o -exec rm -rf '{}' ';'
