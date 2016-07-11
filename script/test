@@ -1,5 +1,6 @@
 #!/bin/bash
-set -e
+
+set -ex
 
 source "$(dirname "${BASH_SOURCE[0]}")/util.bash"
 
@@ -8,12 +9,10 @@ ensure_go_binary errcheck github.com/kisielk/errcheck
 
 target="${root_path}/007"
 
-set -x
 go fmt .
 go vet .
 godep go build -o "${target}"
+godep go test
 
 config_errcheck
 run_errcheck
-
-git rev-parse HEAD > REVISION

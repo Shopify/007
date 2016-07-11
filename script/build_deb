@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -ex
+
+source "$(dirname "${BASH_SOURCE[0]}")/util.bash"
+
+APP="007"
+VERSION=$(eval echo $(cat version))
+target="${root_path}/${APP}"
+
+mkdir -p deb/${APP}/usr/bin
+
+cp ${target} deb/${APP}/usr/bin
+
+bundle exec fpm -s dir -t deb -n ${APP} -v "$VERSION" -C deb/${APP} .
+package_cloud push --url https://packages.shopify.io shopify/${APP}/ubuntu/trusty "${APP}_${VERSION}_amd64.deb"
