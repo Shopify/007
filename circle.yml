@@ -11,7 +11,7 @@ test:
 
 deployment:
   production:
-    branch: [master, build-deb]
+    branch: master
     commands:
       - script/compile
       - script/build_deb
