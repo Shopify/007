@@ -6,7 +6,6 @@ source "$(dirname "${BASH_SOURCE[0]}")/util.bash"
 
 APP="007"
 VERSION=$(eval echo $(cat version))
-target="${root_path}/${APP}"
 
 target="deb/usr/local/${APP}"
 mkdir -p ${target}
