@@ -1,6 +1,13 @@
 #!/bin/bash
 
-set -e
-set -x
+set -ex
 
-script/build
+source "$(dirname "${BASH_SOURCE[0]}")/util.bash"
+
+ensure_go_binary godep github.com/tools/godep
+
+target="${root_path}/007"
+
+go fmt .
+go vet .
+godep go build -o "${target}"
