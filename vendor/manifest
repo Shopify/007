@@ -1,0 +1,30 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/Sirupsen/logrus",
+			"repository": "https://github.com/Sirupsen/logrus",
+			"revision": "c0f7e35ed2e48f188c37581b4b743cf7383f85c6"
+		},
+		{
+			"importpath": "github.com/gorilla/context",
+			"repository": "https://github.com/gorilla/context",
+			"revision": "14f550f51af52180c2eefed15e5fd18d63c0a64a"
+		},
+		{
+			"importpath": "github.com/gorilla/mux",
+			"repository": "https://github.com/gorilla/mux",
+			"revision": "8a875a034c69b940914d83ea03d3f1299b4d094b"
+		},
+		{
+			"importpath": "github.com/marc-barry/goprocinfo/linux",
+			"repository": "https://github.com/marc-barry/goprocinfo/linux",
+			"revision": "a1754604c0fa308086785034dc9123572a7ce463"
+		},
+		{
+			"importpath": "github.com/ooyala/go-dogstatsd",
+			"repository": "https://github.com/ooyala/go-dogstatsd",
+			"revision": "23f2a1659b0203cd76910e56cd4e6394f14a5cbb"
+		}
+	]
+}

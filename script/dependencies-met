@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+# This is a small script that checks that gb has actually installed all the
+# dependecies for us, unfortuantely this is not part of gb so we need to do it
+# manually
+#
+manifest_path = File.expand_path('../../vendor/manifest', __FILE__)
+vendor_src_path = File.expand_path('../../vendor/src', __FILE__)
+lines = File.readlines(manifest_path)
+deps = lines.map {|l| m = /https:\/\/(([A-Za-z0-9.\/\-])+)/.match(l); m && m[1]}.compact
+installed = deps.map { |d| Dir.exist?(File.join(vendor_src_path, d)) }
+exit 0 if installed.all?
+exit 1
