@@ -17,9 +17,9 @@
 			"revision": "8a875a034c69b940914d83ea03d3f1299b4d094b"
 		},
 		{
-			"importpath": "github.com/marc-barry/goprocinfo/linux",
-			"repository": "https://github.com/marc-barry/goprocinfo/linux",
-			"revision": "a1754604c0fa308086785034dc9123572a7ce463"
+			"importpath": "github.com/c9s/goprocinfo/linux",
+			"repository": "https://github.com/c9s/goprocinfo/linux",
+			"revision": "19cb9f127a9c8d2034cf59ccb683cdb94b9deb6c"
 		},
 		{
 			"importpath": "github.com/ooyala/go-dogstatsd",

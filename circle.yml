@@ -1,17 +1,17 @@
 dependencies:
   pre:
-    - go get github.com/tools/godep
-    - bundle install --without development
+    - go get github.com/constabulary/gb/...
+    - gem install package_cloud
+    - bundle
   override:
     - echo "All dependencies are vendored"
 
 test:
   override:
-    - script/test
+    - gb test
 
 deployment:
   production:
     branch: master
     commands:
-      - script/compile
-      - script/build_deb
+      - ./script/build_deb
