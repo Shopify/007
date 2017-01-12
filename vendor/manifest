@@ -25,6 +25,21 @@
 			"importpath": "github.com/ooyala/go-dogstatsd",
 			"repository": "https://github.com/ooyala/go-dogstatsd",
 			"revision": "23f2a1659b0203cd76910e56cd4e6394f14a5cbb"
+		},
+		{
+			"importpath": "github.com/tobi/airbrake-go",
+			"repository": "https://github.com/tobi/airbrake-go",
+			"revision": "a3cdd910a3ffef88a20fbecc10363a520ad61a0a"
+		},
+		{
+			"importpath": "github.com/getsentry/raven-go",
+			"repository": "https://github.com/getsentry/raven-go",
+			"revision": "3f7439d3e74d88e21d196ba20eb61a5a958bc118"
+		},
+		{
+			"importpath": "github.com/certifi/gocertifi",
+			"repository": "https://github.com/certifi/gocertifi",
+			"revision": "a61bf5eafa3aee233ec8043e9da052447e5463dd"
 		}
 	]
 }
