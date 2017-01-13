@@ -1,0 +1,44 @@
+{{ template "header" }}
+
+{{ $cpuInfo:= getCPUInfo }}
+
+{{ if $cpuInfo }}
+  <div class="container">
+    <h1>CPU's</h1>
+
+    <p>Count: {{ $cpuInfo.NumCPU }}</p>
+
+    <table class="table table-bordered">
+    <thead>
+      <th>ID</th>
+      <th>Vendor ID</th>
+      <th>Model</th>
+      <th>Model Name</th>
+      <th>Physical ID</th>
+      <th>Core ID</th>
+      <th>Cores</th>
+      <th>MHz</th>
+    </thead>
+    <tbody>
+    {{ range $processor := $cpuInfo.Processors }}
+      <tr>
+        <td>{{ $processor.Id }}</td>
+        <td>{{ $processor.VendorId }}</td>
+        <td>{{ $processor.Model }}</td>
+        <td>{{ $processor.ModelName }}</td>
+        <td>{{ $processor.PhysicalId }}</td>
+        <td>{{ $processor.CoreId }}</td>
+        <td>{{ $processor.Cores }}</td>
+        <td>{{ $processor.MHz }}</td>
+      </tr>
+    {{ end }}
+    </tbody>
+    </table>
+  </div>
+{{ else }}
+  <div class="container">
+  <h1>Unable to get cpuinfo.</h1>
+  </div>
+{{ end }}
+
+{{ template "footer" }}

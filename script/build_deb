@@ -10,9 +10,9 @@ VERSION=$(eval echo $(cat version))
 target="deb/usr/local/${APP}"
 mkdir -p ${target}
 
-cp    ${root_path}/${APP}    ${target}
-cp -r ${root_path}/assets    ${target}
-cp -r ${root_path}/templates ${target}
+cp    ${root_path}/bin/${APP}    ${target}
+cp -r ${root_path}/src/${APP}/assets    ${target}
+cp -r ${root_path}/src/${APP}/templates ${target}
 
 bundle exec fpm -s dir -t deb -n ${APP} -v "$VERSION" -C deb .
 package_cloud push --url https://packages.shopify.io shopify/${APP}/ubuntu/trusty "${APP}_${VERSION}_amd64.deb"

@@ -1,17 +1,18 @@
 dependencies:
   pre:
-    - go get github.com/tools/godep
-    - bundle install --without development
+    - go get github.com/constabulary/gb/...
+    - bundle
+    - gb vendor restore
+    - gb build all
   override:
     - echo "All dependencies are vendored"
 
 test:
   override:
-    - script/test
+    - gb test
 
 deployment:
   production:
     branch: master
     commands:
-      - script/compile
-      - script/build_deb
+      - ./script/build_deb

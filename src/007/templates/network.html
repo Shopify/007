@@ -1,0 +1,103 @@
+{{ template "header" }}
+
+{{ $netDevStats := getNetworkDeviceStats }}
+{{ $interfaceRateStats := getInterfaceRateStats }}
+
+<div class="container">
+    <h1>Network Device Stats</h1>
+
+{{ if $netDevStats }}
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>-</th>
+      <th colspan="8">Receive</th>
+      <th colspan="8">Transmit</th>
+    </tr>
+    <tr>
+      <th>Interface</th>
+
+      <th>Bytes</th>
+      <th>Packets</th>
+      <th>Errors</th>
+      <th>Drop</th>
+      <th>FIFO</th>
+      <th>Frame</th>
+      <th>Compressed</th>
+      <th>RMulticast</th>
+      
+      <th>Bytes</th>
+      <th>Packets</th>
+      <th>Errors</th>
+      <th>Drop</th>
+      <th>FIFO</th>
+      <th>Colls</th>
+      <th>Carrier</th>
+      <th>Compressed</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{ range $stat := $netDevStats }}
+    <tr>
+      <td>{{ $stat.Iface }}</td>
+      <td>{{ $stat.RxBytes }}</td>
+      <td>{{ $stat.RxPackets }}</td>
+      <td>{{ $stat.RxErrs }}</td>
+      <td>{{ $stat.RxDrop }}</td>
+      <td>{{ $stat.RxFifo }}</td>
+      <td>{{ $stat.RxFrame }}</td>
+      <td>{{ $stat.RxCompressed }}</td>
+      <td>{{ $stat.RxMulticast }}</td>
+      <td>{{ $stat.TxBytes }}</td>
+      <td>{{ $stat.TxPackets }}</td>
+      <td>{{ $stat.TxErrs }}</td>
+      <td>{{ $stat.TxDrop }}</td>
+      <td>{{ $stat.TxFifo }}</td>
+      <td>{{ $stat.TxColls }}</td>
+      <td>{{ $stat.TxCarrier }}</td>
+      <td>{{ $stat.TxCompressed }}</td>
+    </tr>
+  {{ end }}
+  </tbody>
+  </table>
+{{ else }}
+  <h3>Unable to get network device stats.</h3>
+{{ end }}
+
+{{ if $interfaceRateStats }}
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>-</th>
+        <th colspan="2">Receive</th>
+        <th colspan="2">Transmit</th>
+      </tr>
+      <tr>
+        <th>Interface</th>
+
+        <th>bps</th>
+        <th>pps</th>
+
+        <th>bps</th>
+        <th>pps</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{ range $stat := $interfaceRateStats }}
+      <tr>
+        <td>{{ $stat.Iface }}</td>
+        <td>{{ $stat.RxBytesRate }}</td>
+        <td>{{ $stat.RxPacketsRate }}</td>
+        <td>{{ $stat.TxBytesRate }}</td>
+        <td>{{ $stat.TxPacketsRate }}</td>
+      </tr>
+    {{ end }}
+    </tbody>
+    </table>
+{{ else }}
+  <h3>Unable to get network interface rate stats.</h3>
+{{ end }}
+
+</div>
+
+{{ template "footer" }}

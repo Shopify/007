@@ -1,0 +1,45 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/Sirupsen/logrus",
+			"repository": "https://github.com/Sirupsen/logrus",
+			"revision": "c0f7e35ed2e48f188c37581b4b743cf7383f85c6"
+		},
+		{
+			"importpath": "github.com/gorilla/context",
+			"repository": "https://github.com/gorilla/context",
+			"revision": "14f550f51af52180c2eefed15e5fd18d63c0a64a"
+		},
+		{
+			"importpath": "github.com/gorilla/mux",
+			"repository": "https://github.com/gorilla/mux",
+			"revision": "8a875a034c69b940914d83ea03d3f1299b4d094b"
+		},
+		{
+			"importpath": "github.com/c9s/goprocinfo",
+			"repository": "https://github.com/c9s/goprocinfo",
+			"revision": "19cb9f127a9c8d2034cf59ccb683cdb94b9deb6c"
+		},
+		{
+			"importpath": "github.com/ooyala/go-dogstatsd",
+			"repository": "https://github.com/ooyala/go-dogstatsd",
+			"revision": "23f2a1659b0203cd76910e56cd4e6394f14a5cbb"
+		},
+		{
+			"importpath": "github.com/tobi/airbrake-go",
+			"repository": "https://github.com/tobi/airbrake-go",
+			"revision": "a3cdd910a3ffef88a20fbecc10363a520ad61a0a"
+		},
+		{
+			"importpath": "github.com/getsentry/raven-go",
+			"repository": "https://github.com/getsentry/raven-go",
+			"revision": "3f7439d3e74d88e21d196ba20eb61a5a958bc118"
+		},
+		{
+			"importpath": "github.com/certifi/gocertifi",
+			"repository": "https://github.com/certifi/gocertifi",
+			"revision": "a61bf5eafa3aee233ec8043e9da052447e5463dd"
+		}
+	]
+}

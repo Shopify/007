@@ -1,0 +1,17 @@
+name: 007
+
+up:
+  - go: 1.7.1
+  - custom:
+      name: gb
+      desc: Install gb
+      met?: test -e $GOPATH/bin/gb
+      meet: go get github.com/constabulary/gb/...
+  - custom:
+      name: vendors
+      desc: Install dependencies
+      met?: ruby script/dependencies-met
+      meet: gb vendor restore
+
+commands:
+  build: gb build all
