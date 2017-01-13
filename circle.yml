@@ -13,6 +13,6 @@ test:
 
 deployment:
   production:
-    branch: [master, devup-gb-conversion]
+    branch: master
     commands:
       - ./script/build_deb
