@@ -18,7 +18,7 @@
 		},
 		{
 			"importpath": "github.com/c9s/goprocinfo/linux",
-			"repository": "https://github.com/c9s/goprocinfo/linux",
+			"repository": "https://github.com/c9s/goprocinfo",
 			"revision": "19cb9f127a9c8d2034cf59ccb683cdb94b9deb6c"
 		},
 		{

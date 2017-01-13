@@ -3,6 +3,8 @@ dependencies:
     - go get github.com/constabulary/gb/...
     - gem install package_cloud
     - bundle
+    - gb vendor restore
+    - gb build all
   override:
     - echo "All dependencies are vendored"
 

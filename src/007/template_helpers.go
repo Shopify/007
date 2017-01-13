@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	linuxproc "github.com/marc-barry/goprocinfo/linux/linux"
+	linuxproc "github.com/c9s/goprocinfo/linux"
 )
 
 // InterfaceRateStats implements sort.Interface for []InterfaceRateStat based on Iface (i.e. interface name).

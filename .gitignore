@@ -1,5 +1,6 @@
 # GB Dependencies
 vendor/src/github.com
+bin/
 
 # Deb
 deb
@@ -29,5 +30,5 @@ _testmain.go
 *.test
 *.prof
 /REVISION
-/007
+
 .DS_Store

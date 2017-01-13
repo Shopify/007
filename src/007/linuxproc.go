@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strings"
 
-	linuxproc "github.com/marc-barry/goprocinfo/linux/linux"
+	linuxproc "github.com/c9s/goprocinfo/linux"
 )
 
 const (
@@ -44,12 +44,12 @@ func getNetworkDeviceStatsList() []Stat {
 	return list
 }
 
-func readNetstatStats() (*linuxproc.Netstat, error) {
-	return linuxproc.ReadNetstat(NetstatStatPath)
+func readNetstatStats() (*linuxproc.NetStat, error) {
+	return linuxproc.ReadNetStat(NetstatStatPath)
 }
 
 func getNetstatStatsList() []Stat {
-	stat := linuxproc.Netstat{}
+	stat := linuxproc.NetStat{}
 
 	elem := reflect.ValueOf(&stat).Elem()
 	typeOfElem := elem.Type()
