@@ -12,6 +12,7 @@ const (
 	NetworkStatPath  = "/proc/net/dev"
 	NetstatStatPath  = "/proc/net/netstat"
 	SockstatStatPath = "/proc/net/sockstat"
+	SnmpStatPath     = "/proc/net/snmp"
 )
 
 type Stat struct {
@@ -79,6 +80,26 @@ func getSockstatStatsList() []Stat {
 	for i := 0; i < elem.NumField(); i++ {
 		field := typeOfElem.Field(i)
 		list = append(list, Stat{field.Name, strings.Join([]string{sockstatStatsMetricPrefix, field.Tag.Get("json")}, "")})
+	}
+
+	return list
+}
+
+func readSnmpStats() (*linuxproc.Snmp, error) {
+	return linuxproc.ReadSnmp(SnmpStatPath)
+}
+
+func getSnmpStatsList() []Stat {
+	stat := linuxproc.Snmp{}
+
+	elem := reflect.ValueOf(&stat).Elem()
+	typeOfElem := elem.Type()
+
+	list := make([]Stat, 0)
+
+	for i := 0; i < elem.NumField(); i++ {
+		field := typeOfElem.Field(i)
+		list = append(list, Stat{field.Name, strings.Join([]string{snmpStatsMetricPrefix, field.Tag.Get("json")}, "")})
 	}
 
 	return list
