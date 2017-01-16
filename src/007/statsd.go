@@ -12,6 +12,7 @@ const (
 	networkDeviceStatsMetricPrefix = "net.dev."
 	netstatStatsMetricPrefix       = "net.netstat."
 	sockstatStatsMetricPrefix      = "net.sockstat."
+	snmpStatsMetricPrefix          = "net.snmp."
 )
 
 type LoggedStat struct {
@@ -145,6 +146,48 @@ func logSockstatStats() {
 	}
 
 	loggedStat := LoggedStat{SockstatStatPath, time.Now(), stats}
+
+	jsonBytes, err := json.Marshal(loggedStat)
+	if err != nil {
+		Log.WithField("error", err).Errorf("Error JSON marshalling: %+v.", stats)
+	}
+
+	fmt.Println(string(jsonBytes))
+}
+
+func collectSnmpStats() {
+	stats, err := readSnmpStats()
+
+	if err != nil {
+		Log.WithField("error", err).Error("Error reading snmp stats. Can't collect netstat stats.")
+	}
+
+	elem := reflect.ValueOf(stats).Elem()
+	typeOfElem := elem.Type()
+
+	for i := 0; i < elem.NumField(); i++ {
+		field := typeOfElem.Field(i)
+
+		value := elem.Field(i).Uint()
+
+		_, collect := StatsMap[field.Name]
+
+		if metricName := field.Tag.Get("json"); collect && metricName != "" {
+			if err := StatsdClient.Gauge(strings.Join([]string{snmpStatsMetricPrefix, metricName}, ""), float64(value), []string{}, 1); err != nil {
+				Log.WithField("error", err).Error("Couldn't submit event to statsd.")
+			}
+		}
+	}
+}
+
+func logSnmpStats() {
+	stats, err := readSnmpStats()
+
+	if err != nil {
+		Log.WithField("error", err).Error("Error reading snmp stats. Can't log netstat stats.")
+	}
+
+	loggedStat := LoggedStat{SnmpStatPath, time.Now(), stats}
 
 	jsonBytes, err := json.Marshal(loggedStat)
 	if err != nil {
