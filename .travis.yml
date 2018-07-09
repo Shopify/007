@@ -12,6 +12,7 @@ script:
   - gb build all
 deploy:
   provider: script
+  skip_cleanup: true
   script: ./script/build_deb
   on:
     branch: master
