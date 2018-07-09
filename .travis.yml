@@ -5,7 +5,6 @@ ruby:
   - "2.3.1"
 install:
   - go get github.com/constabulary/gb/...
-  - bundle
   - gb vendor restore
 script:
   - gb test
@@ -13,7 +12,6 @@ script:
 deploy:
   provider: script
   skip_cleanup: true
-  script: ./script/build_deb
+  script: bundle install && ./script/build_deb
   on:
     branch: master
-  
