@@ -5,7 +5,7 @@ ruby:
   - "2.3.1"
 install:
   - go get github.com/constabulary/gb/...
-  - bundle install
+  - bundle
   - which fpm
   - gb vendor restore
 script:
