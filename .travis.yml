@@ -1,3 +1,10 @@
 language: go
 go:
   - "1.7.1"
+ruby:
+  - "2.3.1"
+install:
+  - go get github.com/constabulary/gb/...
+  - bundle
+  - gb vendor restore
+  - gb build all
