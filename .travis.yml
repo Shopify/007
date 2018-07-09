@@ -11,6 +11,7 @@ script:
   - gb test
   - gb build all
 deploy:
+  provider: script
   script: ./script/build_deb
   on:
     branch: master
