@@ -10,7 +10,7 @@ VERSION=$(eval echo $(cat version))
 target="deb/usr/local/${APP}"
 mkdir -p ${target}
 
-cp    ${root_path}/bin/${APP}    ${target}
+cp    ./${APP}    ${target}
 cp -r ${root_path}/src/${APP}/assets    ${target}
 cp -r ${root_path}/src/${APP}/templates ${target}
 
