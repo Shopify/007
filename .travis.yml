@@ -14,4 +14,4 @@ deploy:
   skip_cleanup: true
   script: bundle install && ./script/build_deb
   on:
-    branch: where_is_fpm
+    branch: master
