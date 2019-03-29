@@ -1,0 +1,6 @@
+# https://services.shopify.io/services/007/production
+org_line: Shopify Core
+owners:
+- Shopify/core-launch-replatforming
+production:
+  classification: tier3
